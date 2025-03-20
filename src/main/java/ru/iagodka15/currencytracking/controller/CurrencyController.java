@@ -19,17 +19,15 @@ public class CurrencyController {
     // Имитация базы данных
     private final Map<String, Currency> currencies = new HashMap<>();
 
-    /**
-     * Метод для получения списка всех валют
-     */
+    // Метод для получения списка всех валют
+
     @GetMapping
     public ResponseEntity<List<Currency>> getCurrencies() {
         return ResponseEntity.ok(new ArrayList<>(currencies.values()));
     }
 
-    /**
-     * Метод для добавления новой валюты
-     */
+    // Метод для добавления новой валюты
+
     @PostMapping
     public ResponseEntity<Currency> addCurrency(@RequestBody CurrencyRequest request) {
         // Генерация уникального идентификатора
@@ -45,9 +43,8 @@ public class CurrencyController {
         return ResponseEntity.status(HttpStatus.CREATED).body(currency);
     }
 
-    /**
-     * Метод для получения информации о конкретной валюте
-     */
+    // Метод для получения информации о конкретной валюте
+
     @GetMapping("/{id}")
     public ResponseEntity<Currency> getCurrencyById(@PathVariable String id) {
         if (!currencies.containsKey(id)) {
@@ -56,9 +53,8 @@ public class CurrencyController {
         return ResponseEntity.ok(currencies.get(id));
     }
 
-    /**
-     * Метод для обновления данных валюты
-     */
+    // Метод для обновления данных валюты
+
     @PutMapping("/{id}")
     public ResponseEntity<Currency> updateCurrency(@PathVariable String id, @RequestBody CurrencyRequest request) {
         if (!currencies.containsKey(id)) {
@@ -75,9 +71,8 @@ public class CurrencyController {
         return ResponseEntity.ok(updatedCurrency);
     }
 
-    /**
-     * Метод для удаления валюты
-     */
+    // Метод для удаления валюты
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCurrency(@PathVariable String id) {
         if (!currencies.containsKey(id)) {
