@@ -4,3 +4,14 @@ server:
 spring:
   application:
     name: project
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog/create-currency-table.sql

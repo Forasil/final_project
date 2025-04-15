@@ -18,7 +18,8 @@ services:
       - app_network
     restart: always
     environment:
-      POSTGRES_USER: user
+
+      _USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: currency_tracker
     ports:
