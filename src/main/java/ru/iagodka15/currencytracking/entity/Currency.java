@@ -17,6 +17,10 @@ public class Currency {
     private Long id;
 
     @NotBlank(message = "Название валюты обязательно")
+    @Column(name = "name")
     private String currencyName;
+    private String baseCurrency;
+    private String priceChangeRange;
+    private String description;
 }
 

@@ -1,15 +1,6 @@
 version: '3.0'
 
 services:
-  app:
-    build: .
-    container_name: currency-tracking
-    networks:
-      - app_network
-    ports:
-      - "8080:8080"
-    depends_on:
-      - db
 
   db:
     image: postgres:15
@@ -19,7 +10,7 @@ services:
     restart: always
     environment:
 
-      _USER: user
+      POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: currency_tracker
     ports:
